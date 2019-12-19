@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{loggedInUser.name}}</h1>
+    <button><a href="/logout">Logout</a></button>
+    <h2>Your Trip Schedules</h2>
+    <table>
+        <tr>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Plan</th>
+        </tr>
+        {% for trips in usertrips %}
+        <tr>
+          <td><a href="/destination/{{trips.id}}">{{trips.location}}</a></td>
+          <td>{{trips.start_date}}</td>
+          <td>{{trips.end_date}}</td>
+          <td>{{trips.desc}}</td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+
+      <h2>Other User's Travel Plans</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Do you want to join?</th>
+        </tr>
+        {% for trips in othertrips %}
+        <tr>
+          <td>{{trips.creator.name}}</td>
+          <td><a href="/destination/{{trips.id}}">{{trips.location}}</a></td>
+          <td>{{trips.start_date}}</td>
+          <td>{{trips.end_date}}</td>
+          <td><a href="/jointrip/{{trips.id}}">Join</a></td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+      <button><a href="/travels/add">Add Travel Plan</a></button>
+</body>
+</html>

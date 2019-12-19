@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     
+    <title>Document</title>
+    <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style>
+    .container{
+            background-color: #2196f3;
+            color: white;
+            min-height: 800px;
+        }
+      
+        .jumbotron{
+            background-color: #cecbcb;
+            color: white;
+            
+            border: 1px solid white;
+            
+        }
+        h5{
+            font-weight: bold;
+        }
+        h2{
+            text-decoration: underline;
+        }
+        
+
+</style>
+
+
+<body>
+    <div class="container">
+        <div class="pageheader">
+            <br>
+            <h1>Trip Details! </h1>
+            <a href="/travels"class="btn btn-primary">Home</a>
+        </div>
+        <br>
+        <div class="jumbotron">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+                <h2>{{destination.location}}</h2>
+                <h5>Planned by: {{destination.creator.name}}</h5>
+                <h5>Description: {{destination.desc}}</h5>
+                <h5>Travel Date From: {{destination.start_date}}</h5>
+                <h5>Travel Date To: {{destination.end_date}}</h5>
+
+                <br>
+                <br>
+                <br>
+                <h2>Other Users Joining Trip:</h2>
+                
+                <ul>
+                    {% for travelers in this_trip %}
+                    <li>{{travelers.name}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <img src="https://images.pexels.com/photos/2147486/pexels-photo-2147486.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="travel" id="nttLogo" class="img-responsive  pull-left">
+            </div>
+        </div> <!--close row-->
+        </div> <!--close jumbotron-->
+    </div><!--close container-->
+
+    
+</body>
+
+    
+</html>
